@@ -1,0 +1,62 @@
+{
+  "name": "greatefue-datewizard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint \"**\\*.ts\""
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md",
+    "AUTHORS.txt"
+  ],
+  "keywords": [
+    "time",
+    "date",
+    "datetime",
+    "format",
+    "parse",
+    "timestamp",
+    "friendly",
+    "human",
+    "humanize",
+    "readable",
+    "duration",
+    "ago",
+    "pretty",
+    "timespan",
+    "chat",
+    "front-end"
+  ],
+  "author": "Great Efue",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/greatefue/greatefue-datewizard/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/greatefue/greatefue-datewizard.git",
+    "directory": "greatefue-datewizard"
+  },
+  "funding": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/greatefue-datewizard"
+  },
+  "homepage": "https://github.com/greatefue/greatefue-datewizard#readme",
+  "engines": {
+    "node": "^10.12.0 || >=12.0.0"
+  },
+  "dependencies": {
+    "@typescript-eslint/parser": "^4.19.0",
+    "typescript": "^4.2.3"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.35",
+    "@typescript-eslint/eslint-plugin": "^4.19.0",
+    "eslint": "^7.22.0"
+  }
+}
