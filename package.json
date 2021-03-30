@@ -1,7 +1,7 @@
 {
   "name": "greatefue-datewizard",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.3",
+  "description": "A Package which transform date to a friendly sentence etc.",
   "main": "./dist/index.js",
   "scripts": {
     "build": "tsc",
@@ -12,7 +12,8 @@
     "dist",
     "LICENSE",
     "README.md",
-    "AUTHORS.txt"
+    "AUTHORS.txt",
+    "CONTRIBUTORS.md"
   ],
   "keywords": [
     "time",
@@ -44,12 +45,24 @@
   },
   "funding": {
     "type": "opencollective",
-    "url": "https://opencollective.com/greatefue-datewizard"
+    "url": ""
   },
   "homepage": "https://github.com/greatefue/greatefue-datewizard#readme",
   "engines": {
     "node": "^10.12.0 || >=12.0.0"
   },
+  "contributors": [
+    {
+      "name": "Great Efue",
+      "email": "greatefue@gmail.com",
+      "url": "https://github.com/greatefue"
+    },
+    {
+      "name": "Temitope Afolabi",
+      "email": "afolabitemitope78@gmail.com",
+      "url": "https://github.com/d-sonofman"
+    }
+  ],
   "dependencies": {
     "@typescript-eslint/parser": "^4.19.0",
     "typescript": "^4.2.3"
