@@ -5,7 +5,8 @@
 <p align="center">
      <!-- <img src="https://github.com/greatefue/greatefue-datewizard/workflows/CI/badge.svg" alt="CI" />  -->
     <a href="https://www.npmjs.com/package/greatefue-datewizard"><img src="https://img.shields.io/npm/v/greatefue-datewizard.svg?style=flat-square" alt="NPM Version" /></a>
-    <a href="https://www.npmjs.com/package/greatefue-datewizard"><img src="https://img.shields.io/npm/dm/greatefue-datewizard.svg?style=flat-square" alt="NPM Downloads" /></a>
+    <a href="https://www.npmjs.com/package/greatefue-datewizard"><img src="https://img.shields.io/npm/dm/greatefue-datewizard.svg?style=flat-square" alt="NPM Downloads" /></a><a href="https://app.fossa.com/projects/git%2Bgithub.com%2Fgreatefue%2Fgreatefue-datewizard?ref=badge_shield" alt="FOSSA Status"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Fgreatefue%2Fgreatefue-datewizard.svg?type=shield"/></a>
+
     <a href="https://github.com/greatefue/greatefue-datewizard/tree/1.0.0"></a>
 </p>
 
@@ -89,3 +90,5 @@ Please consider supporting me on Patreon.
 Copyright © 2021, [Great Efue](https://github.com/greatefue).
 
 Released under the [MIT License](LICENSE).
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fgreatefue%2Fgreatefue-datewizard.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fgreatefue%2Fgreatefue-datewizard?ref=badge_large)
