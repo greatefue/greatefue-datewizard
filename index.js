@@ -1,36 +1,19 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DaysAgo = exports.DateInstructions = void 0;
-exports.DateInstructions = {
-    "year": false,
-    "month": false,
-    "day": false,
-    "hour": false,
-    "minute": false,
-    "second": false,
-    "time": false,
-    "date": false
-};
+exports.DaysAgo = void 0;
+const variables_1 = require("./variables");
 function DaysAgo(value, DateInstructions = {}) {
     if (value) {
         if (!Date.parse(value.toString())) {
             return value + " " + "is an invalid date.";
         }
-        const IsInstructionEmpty = IsObjectEmpty(DateInstructions);
+        const IsInstructionEmpty = ObjectAnalyzer.IsObjectEmpty(DateInstructions);
         let newDate = +new Date();
-        const intervals = {
-            "year": 31536000,
-            "month": 2592000,
-            "week": 604800,
-            "day": 86400,
-            "hour": 3600,
-            "minute": 60,
-            "second": 1
-        };
-        const InstructionUsed = ExtractDatePart(value, DateInstructions).InstructionUsed;
+        const intervals = variables_1.PreDefinedVariables.DateIntervals;
+        const InstructionUsed = DatePart.ExtractDatePart(value, DateInstructions).InstructionUsed;
         if (!IsInstructionEmpty) {
-            value = ExtractDatePart(value, DateInstructions).value;
-            newDate = ExtractDatePart(+new Date(), DateInstructions).value;
+            value = DatePart.ExtractDatePart(value, DateInstructions).value;
+            newDate = DatePart.ExtractDatePart(+new Date(), DateInstructions).value;
         }
         const seconds = Math.floor((+new Date(newDate) - +new Date(value)) / 1000);
         if (seconds > -1 && seconds < 29 && InstructionUsed == "none") {
@@ -251,38 +234,42 @@ function DaysAgo(value, DateInstructions = {}) {
     return value;
 }
 exports.DaysAgo = DaysAgo;
-function ExtractDatePart(value, instructions) {
-    if ((Object.getOwnPropertyDescriptor(instructions, "date")) && instructions.date === true) {
-        const v = (new Date(value).getFullYear()) + "-" + (new Date(value).getMonth() + 1) + "-" + (new Date(value).getDate());
-        return { value: +new Date(v), InstructionUsed: "date" };
+class DatePart {
+    static ExtractDatePart(value, instructions) {
+        if ((Object.getOwnPropertyDescriptor(instructions, "date")) && instructions.date === true) {
+            const v = (new Date(value).getFullYear()) + "-" + (new Date(value).getMonth() + 1) + "-" + (new Date(value).getDate());
+            return { value: +new Date(v), InstructionUsed: "date" };
+        }
+        if ((Object.getOwnPropertyDescriptor(instructions, "time")) && instructions.time === true) {
+            const v = +new Date(value).getHours() + "-" + +new Date(value).getMinutes() + "-" + +new Date(value).getSeconds();
+            return { value: +new Date(v), InstructionUsed: "time" };
+        }
+        if ((Object.getOwnPropertyDescriptor(instructions, "year")) && instructions.year === true) {
+            return { value: +new Date(value).getFullYear(), InstructionUsed: "year" };
+        }
+        if ((Object.getOwnPropertyDescriptor(instructions, "month")) && instructions.month === true) {
+            return { value: +new Date(value).getMonth() + 1, InstructionUsed: "month" };
+        }
+        if ((Object.getOwnPropertyDescriptor(instructions, "day")) && instructions.day === true) {
+            return { value: +new Date(value).getDate(), InstructionUsed: "day" };
+        }
+        if ((Object.getOwnPropertyDescriptor(instructions, "hour")) && instructions.hour === true) {
+            return { value: +new Date(value).getHours(), InstructionUsed: "hour" };
+        }
+        if ((Object.getOwnPropertyDescriptor(instructions, "minute")) && instructions.minute === true) {
+            return { value: +new Date(value).getMinutes(), InstructionUsed: "minute" };
+        }
+        if ((Object.getOwnPropertyDescriptor(instructions, "second")) && instructions.second === true) {
+            return { value: +new Date(value).getSeconds(), InstructionUsed: "second" };
+        }
+        return { value: +new Date(value), InstructionUsed: "none" };
     }
-    if ((Object.getOwnPropertyDescriptor(instructions, "time")) && instructions.time === true) {
-        const v = +new Date(value).getHours() + "-" + +new Date(value).getMinutes() + "-" + +new Date(value).getSeconds();
-        return { value: +new Date(v), InstructionUsed: "time" };
-    }
-    if ((Object.getOwnPropertyDescriptor(instructions, "year")) && instructions.year === true) {
-        return { value: +new Date(value).getFullYear(), InstructionUsed: "year" };
-    }
-    if ((Object.getOwnPropertyDescriptor(instructions, "month")) && instructions.month === true) {
-        return { value: +new Date(value).getMonth() + 1, InstructionUsed: "month" };
-    }
-    if ((Object.getOwnPropertyDescriptor(instructions, "day")) && instructions.day === true) {
-        return { value: +new Date(value).getDate(), InstructionUsed: "day" };
-    }
-    if ((Object.getOwnPropertyDescriptor(instructions, "hour")) && instructions.hour === true) {
-        return { value: +new Date(value).getHours(), InstructionUsed: "hour" };
-    }
-    if ((Object.getOwnPropertyDescriptor(instructions, "minute")) && instructions.minute === true) {
-        return { value: +new Date(value).getMinutes(), InstructionUsed: "minute" };
-    }
-    if ((Object.getOwnPropertyDescriptor(instructions, "second")) && instructions.second === true) {
-        return { value: +new Date(value).getSeconds(), InstructionUsed: "second" };
-    }
-    return { value: +new Date(value), InstructionUsed: "none" };
 }
-function IsObjectEmpty(obj) {
-    if (Object.getOwnPropertyNames(obj).length === 0) {
-        return true;
+class ObjectAnalyzer {
+    static IsObjectEmpty(obj) {
+        if (Object.getOwnPropertyNames(obj).length === 0) {
+            return true;
+        }
+        return false;
     }
-    return false;
 }
